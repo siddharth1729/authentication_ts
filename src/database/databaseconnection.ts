@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const client = new Client({
-    connectionString:"postgresql://siddharth:-WAIbtJCzvMKkle-_u-CIQ@solid-poodle-2991.7s5.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full",
+    connectionString:process.env.DATABASE_URL,
   });
   
   const connectionToLocalDatabase  = knex({
