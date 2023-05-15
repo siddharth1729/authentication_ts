@@ -1,5 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
+import authRouter from './interface/routes/authRouts'
 
 class App {
     private readonly app: express.Application;
@@ -8,7 +9,6 @@ class App {
         this.app = express();
         this.config();
         this.registerRoutes();
-        this.startServer();
     }
     private config() {
         this.app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,16 +18,17 @@ class App {
 
     // Initialize all the routes of the application
     private registerRoutes(): void {
-        const router = express.Router();
+        const router = express.Router();       
+        this.app.use('/api/signupuser/', authRouter)
 
     }
 
     // Server will listen to this port
     private startServer() {
         try {
-            const PORT: number = 8080;
-            this.app.listen(process.env.PORT || PORT, () => {
-                console.log(`App listening on port ===> http://localhost:${PORT}/`);
+            //const PORT: number = 8080;
+            this.app.listen(process.env.PORT, () => {
+                console.log(`App listening on port ===> http://localhost:${process.env.PORT}/`);
             });
         } catch (error) {
             console.error('Server could not be started', error);
