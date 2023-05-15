@@ -1,5 +1,3 @@
-Sure, here's a sample README file for creating an authentication service in Node.js using TypeScript and clean architecture:
-
 # Creating an Authentication Service in Node.js using TypeScript and Clean Architecture
 
 This guide will walk you through the process of creating an authentication service in Node.js using TypeScript and clean architecture. The authentication service will allow users to sign up and log in to your application using email and password.
